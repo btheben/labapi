@@ -1,0 +1,23 @@
+<section>
+  <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} produit</legend>
+
+      <header>
+	  <h1 ng-show="product.ImageURL != null"><img src="{{product.ImageURL}}"</h1>
+      <h1>{{Product.Name}}</h1>
+      <h2>{{product.Description}}</h2>
+    </header>
+    <p ng-show="product.Rate != null">Taux d'intérêt : {{product.Rate}} </p>
+	<p ng-show="product.ReducedRate != null">Taux d'intérêt réduit : {{product.ReducedRate}} </p>
+	<p ng-show="product.AnnualFee != null">Frais annuels : {{product.AnnualFee}} </p>
+	<p ng-show="product.CashBack != null">Remises en argent : {{product.CashBack}} </p>
+	<p ng-show="product.RewardsProgram != null">Programme de récompenses : {{product.RewardsProgram}} </p>
+	
+    <div class="actions">
+      <label></label>
+      <button>Retour</button>
+    </div>
+    </fieldset>
+  </form>
+<section>

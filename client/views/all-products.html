@@ -1,0 +1,52 @@
+<section>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+       <p>
+        Recherche:
+        <input ng-model="$ctrl.search.Name">
+      </p>
+	  
+	  <p>
+        Taux De :
+        <input type="number" name="filterRateMin" ng-model="filterModelMin.rate" />
+		à <input type="number" name="filterRateMax" ng-model="filterModelMax.rate" />
+      </p>
+	  
+	  <p>
+        Frais Annuels De :
+        <input type="number" name="filterAnnualFeeMin" ng-model="filterModelMin.annualFee" />
+		à <input type="number" name="filterAnnualFeeMax" ng-model="filterModelMax.annualFee" />
+      </p>
+    </div>
+  </div>
+</div>
+
+  <table border="1">
+  
+  <tr nowrap="nowrap">
+	<th><greet-user></greet-user>Carte</th>
+	<th>Nom</th>
+	<th>Description</th>
+	<th>Taux d'intérêt</th>	
+	<th>Frais annuels</th>
+	<th>Actions</th>
+  </tr>
+     <tr nowrap="nowrap" ng-repeat="r in products.slice().reverse() | filter:$ctrl.search | filter:byRange('Rate', filterModelMin.rate, filterModelMax.rate) | filter:byRange('AnnualFee', filterModelMin.annualFee, filterModelMax.annualFee)">
+	
+	  <th><img src="{{r.ImageURL}}"</th>
+      <th >{{r.Name}}</th>
+      <th>{{r.Description}}</th>    
+    <th>{{r.Rate}} </th>	
+	<th>{{r.AnnualFee}} </th>	
+	<th class="actions" ng-show="currentUser">
+      <button ui-sref="edit-product({ id: r.id })">Modifier</button>
+      <button ui-sref="delete-product({ id: r.id })">Supprimer</button>
+    </th>
+	<th class="actions" ng-show="!currentUser">
+      <button ui-sref="view-product({ id: r.id })">Plus de détails</button>
+    </th>
+	 </tr>
+    </table>
+</section>

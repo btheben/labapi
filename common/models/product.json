@@ -1,0 +1,46 @@
+{
+  "name": "Product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    },
+    "Rate": {
+      "type": "string",
+      "required": true
+    },
+    "ReducedRate": {
+      "type": "string",
+      "required": false
+    },
+    "AnnualFee": {
+      "type": "string",
+      "required": false
+    },
+    "RewardsProgram": {
+      "type": "string",
+      "required": false
+    },
+    "CashBack": {
+      "type": "string",
+      "required": false
+    },
+    "ImageURL": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "productDS": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "products",
+    "password": "ben0its",
+    "name": "productDS",
+    "user": "bsurpren",
+    "connector": "mongodb"
+  }
+}

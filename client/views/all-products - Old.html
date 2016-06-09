@@ -1,0 +1,48 @@
+<section>
+  <article ng-repeat="r in products.slice().reverse()">
+    <header>
+	  <h1 ng-show="r.ImageURL != null"><img src="{{r.ImageURL}}"</h1>
+      <h1>{{r.Name}}</h1>
+      <h2>{{r.Description}}</h2>
+    </header>
+    <p ng-show="r.Rate != null">Taux d'intérêt : {{r.Rate}} </p>
+	<p ng-show="r.ReducedRate != null">Taux d'intérêt réduit : {{r.ReducedRate}} </p>
+	<p ng-show="r.AnnualFee != null">Frais annuels : {{r.AnnualFee}} </p>
+	<p ng-show="r.CashBack != null">Remises en argent : {{r.CashBack}} </p>
+	<p ng-show="r.RewardsProgram != null">Programme de récompenses : {{r.RewardsProgram}} </p>
+	
+	<div class="actions" ng-show="currentUser">
+      <button ui-sref="edit-product({ id: r.id })">Modifier</button>
+      <button ui-sref="delete-product({ id: r.id })">Supprimer</button>
+    </div>
+	<div class="actions" ng-show="!currentUser">
+      <button ui-sref="view-product({ id: r.id })">Plus de détails</button>
+    </div>
+  </article>
+  
+  <table border="1">
+  <tr nowrap="nowrap">
+	<th>Carte</th>
+	<th>Nom</th>
+	<th>Description</th>
+	<th>Taux d'intérêt</th>	
+	<th>Frais annuels</th>
+	<th>Actions</th>
+  </tr>
+     <tr nowrap="nowrap" ng-repeat="r in products.slice().reverse()">
+	
+	  <th><img src="{{r.ImageURL}}"</th>
+      <th >{{r.Name}}</th>
+      <th>{{r.Description}}</th>    
+    <th>{{r.Rate}} </th>	
+	<th>{{r.AnnualFee}} </th>	
+	<th class="actions" ng-show="currentUser">
+      <button ui-sref="edit-product({ id: r.id })">Modifier</button>
+      <button ui-sref="delete-product({ id: r.id })">Supprimer</button>
+    </th>
+	<th class="actions" ng-show="!currentUser">
+      <button ui-sref="view-product({ id: r.id })">Plus de détails</button>
+    </th>
+	 </tr>
+    </table>
+</section>

@@ -1,0 +1,54 @@
+<section>
+  <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} produit</legend>
+
+      <div class="form-group">
+        <label>Nom :</label>
+        <textarea ng-model="product.Name"></textarea>
+      </div>
+	  
+	  <div class="form-group">
+        <label>Description :</label>
+        <textarea ng-model="product.Description"></textarea>
+      </div>
+	  
+	  <div class="form-group">
+        <label>Taux d'intérêt :</label>
+        <textarea ng-model="product.Rate"></textarea>
+      </div>
+	  
+	  <div class="form-group">
+        <label>Taux d'intérêt réduit :</label>
+        <textarea ng-model="product.ReducedRate"></textarea>
+      </div>
+	  
+	  <div class="form-group">
+        <label>Frais annuels :</label>
+        <textarea ng-model="product.AnnualFee"></textarea>
+      </div>
+	  
+	  <div class="form-group">
+        <label>Remises en argent :</label>
+        <textarea ng-model="product.CashBack"></textarea>
+      </div>
+	  
+	  
+	  <div class="form-group">
+        <label>Programme de récompenses</label>
+        <textarea ng-model="product.RewardsProgram"></textarea>
+      </div>
+	  
+	  
+	  <div class="form-group">
+        <label>URL de l'image</label>
+        <textarea ng-model="product.ImageURL"></textarea>
+      </div>
+
+      <div class="actions">
+        <label></label>
+        <button>{{action}} produit</button>
+      </div>
+    </fieldset>
+  </form>
+<section>

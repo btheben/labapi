@@ -1,54 +1,65 @@
-<section>
-  <form name="form" ng-submit="submitForm()">
-    <fieldset>
-      <legend>{{action}} produit</legend>
+  <form name="form" role="form" class="form-horizontal" ng-submit="submitForm()">
+        <div class="form-group" style="width:50%">
+          <label for="productName" class="col-sm-4 control-label">Nom :</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="productName" ng-model="product.Name">
+        </div>
+      </div>
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductDescription" class="col-sm-4 control-label">Description :</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="ProductDescription" ng-model="product.Description">
+        </div>
+      </div>
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductRate" class="col-sm-4 control-label">Taux d'intérêt :</label>
+        <div class="col-sm-8">
+        <input type="number" class="form-control" id="ProductRate" ng-model="product.Rate">
+        </div>
+      </div>
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductReducedRate" class="col-sm-4 control-label">Taux d'intérêt réduit :</label>
+        <div class="col-sm-8">
+        <input type="number" class="form-control" id="ProductReducedRate" ng-model="product.ReducedRate">
+        </div>
+      </div>
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductAnnualFee" class="col-sm-4 control-label">Frais annuels :</label>
+        <div class="col-sm-8">
+        <input type="number" class="form-control" id="ProductAnnualFee" ng-model="product.AnnualFee">
+        </div>
+      </div>
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductCashBack" class="col-sm-4 control-label">Remises en argent :</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="ProductCashBack" ng-model="product.CashBack">
+       </div>
+      </div>
+	  
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductRewardsProgram" class="col-sm-4 control-label">Programme de récompenses :</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="ProductRewardsProgram" ng-model="product.RewardsProgram">
+       </div>
+      </div>
+	  
+	  
+	  <div class="form-group" style="width:50%">
+        <label for="ProductURL" class="col-sm-4 control-label">URL de l'image : </label>
+        <div class="col-sm-8">
+        <textarea class="form-control" id="ProductURL" ng-model="product.ImageURL"></textarea>
+        </div>
+      </div>
 
-      <div class="form-group">
-        <label>Nom :</label>
-        <textarea ng-model="product.Name"></textarea>
-      </div>
-	  
-	  <div class="form-group">
-        <label>Description :</label>
-        <textarea ng-model="product.Description"></textarea>
-      </div>
-	  
-	  <div class="form-group">
-        <label>Taux d'intérêt :</label>
-        <textarea ng-model="product.Rate"></textarea>
-      </div>
-	  
-	  <div class="form-group">
-        <label>Taux d'intérêt réduit :</label>
-        <textarea ng-model="product.ReducedRate"></textarea>
-      </div>
-	  
-	  <div class="form-group">
-        <label>Frais annuels :</label>
-        <textarea ng-model="product.AnnualFee"></textarea>
-      </div>
-	  
-	  <div class="form-group">
-        <label>Remises en argent :</label>
-        <textarea ng-model="product.CashBack"></textarea>
-      </div>
-	  
-	  
-	  <div class="form-group">
-        <label>Programme de récompenses</label>
-        <textarea ng-model="product.RewardsProgram"></textarea>
-      </div>
-	  
-	  
-	  <div class="form-group">
-        <label>URL de l'image</label>
-        <textarea ng-model="product.ImageURL"></textarea>
-      </div>
-
-      <div class="actions">
-        <label></label>
-        <button>{{action}} produit</button>
-      </div>
-    </fieldset>
+      <div class="form-group" style="width:50%">
+        <div class="col-sm-offset-4 col-sm-8">
+            <button type="submit" class="btn btn-default">{{action}} produit</button>
+         </div>
+  </div>
   </form>
-<section>

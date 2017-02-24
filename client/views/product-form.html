@@ -1,3 +1,70 @@
+  <style>
+    .cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-selector-2 input{
+    position:absolute;
+    z-index:999;
+}
+
+
+
+.classique{background-image:url(/img/classique.png);}
+.elegance{background-image:url(/img/elegance.png);}
+.etudiants{background-image:url(/img/etudiants.png);}
+.modulo{background-image:url(/img/modulo.png);}
+.odyssee{background-image:url(/img/odyssee.png);}
+.odysseeelite{background-image:url(/img/odysseeelite.png);}
+.remises{background-image:url(/img/remises.png);}
+.world{background-image:url(/img/world.png);}
+
+.cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector input:checked +.drinkcard-cc{
+  border: 1px solid #00FF00;
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    border: 2px solid #000000;
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:150px;height:100px;
+    border: 1px solid #000000;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.2) grayscale(.7) opacity(.7);
+       -moz-filter: brightness(1.2) grayscale(.7) opacity(.7);
+            filter: brightness(1.2) grayscale(.7) opacity(.7);
+}
+.drinkcard-cc:hover{
+    
+    -webkit-filter: brightness(1) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1) grayscale(.5) opacity(.9);
+            filter: brightness(1) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+    
+  </style>
+  <body ng-app="app" ng-controller="MyCtrl">
   <form name="form" role="form" class="form-horizontal" ng-submit="submitForm()">
         <div class="form-group" style="width:50%">
           <label for="productName" class="col-sm-4 control-label">Nom :</label>
@@ -49,17 +116,48 @@
        </div>
       </div>
 	  
-	  
 	  <div class="form-group" style="width:50%">
-        <label for="ProductURL" class="col-sm-4 control-label">URL de l'image : </label>
-        <div class="col-sm-8">
-        <textarea class="form-control" id="ProductURL" ng-model="product.ImageURL"></textarea>
-        </div>
+        <label for="ImageURL" class="col-sm-4 control-label">Image : </label>
+        
+       <div class="cc-selector-2 col-sm-8">
+        <input id="classique" type="radio" ng-model="product.ImageURL" value="classique.png" />
+        <label class="drinkcard-cc classique" for="classique"></label>
+        <input id="elegance" type="radio" ng-model="product.ImageURL" value="elegance.png" />
+        <label class="drinkcard-cc elegance"for="elegance"></label><br>
+        <input id="etudiants" type="radio" ng-model="product.ImageURL" value="etudiants.png" />
+        <label class="drinkcard-cc etudiants" for="etudiants"></label>
+        <input id="modulo" type="radio" ng-model="product.ImageURL" value="modulo.png" />
+        <label class="drinkcard-cc modulo"for="modulo"></label><br>
+        <input id="odyssee" type="radio" ng-model="product.ImageURL" value="odyssee.png" />
+        <label class="drinkcard-cc odyssee" for="odyssee"></label>
+        <input id="odysseeelite" type="radio" ng-model="product.ImageURL" value="odysseeelite.png" />
+        <label class="drinkcard-cc odysseeelite"for="odysseeelite"></label><br>
+        <input id="remises" type="radio" ng-model="product.ImageURL" value="remises.png" />
+        <label class="drinkcard-cc remises" for="remises"></label>
+        <input id="world" type="radio" ng-model="product.ImageURL" value="world.png" />
+        <label class="drinkcard-cc world"for="world"></label>
+    </div>
+       </div> 
+       
+        
+           <div  class="cc-selector-2 col-sm-8" ng-repeat="r in images.slice().reverse()">
+               <div layout="row" ng-if="$even">
+                    <div flex>
+                       <input id="{{images[$index].imageDescription}}" type="radio" ng-model="product.ImageURL" value="/img/{{images[$index].fileName}}" />
+                       <label class="drinkcard-cc" style="background-image:url(/img/{{images[$index].fileName}});" for="{{images[$index].imageDescription}}"></label>
+                </div>
+                <div flex>
+                       <input id="{{images[$index+1].imageDescription}}" type="radio" ng-model="product.ImageURL" value="/img/{{images[$index+1].fileName}}" />
+                       <label class="drinkcard-cc" style="background-image:url(/img/{{images[$index+1].fileName}});" for="{{images[$index+1].imageDescription}}"></label>
+                </div>
+              </div>
+            </div>
+      
+      
+    
+       <div class="actions">
+        <label></label>
+        <button>{{action}} produit</button>
       </div>
-
-      <div class="form-group" style="width:50%">
-        <div class="col-sm-offset-4 col-sm-8">
-            <button type="submit" class="btn btn-default">{{action}} produit</button>
-         </div>
-  </div>
-  </form>
+</body>
+  

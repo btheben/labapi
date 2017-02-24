@@ -20,6 +20,7 @@ angular
       Product) {
     $scope.products = Product.find();
 	
+	 
 	$scope.byRange = function (fieldName, minValue, maxValue) {
   if (minValue === undefined) minValue = 0;
   if (maxValue === undefined) maxValue = 500;
@@ -28,6 +29,11 @@ angular
     return minValue <= item[fieldName] && item[fieldName] <= maxValue;
   };
 };
+  
+  }])
+   .controller('AllImagesController', ['$scope', 'Image', function($scope,
+      Image) {
+    $scope.images = Image.find();
   
   }])
   .controller('AddReviewController', ['$scope', 'CoffeeShop', 'Review',
@@ -59,12 +65,13 @@ angular
         });
     };
   }])
-  .controller('AddProductController', ['$scope', 'Product',
-      '$state', function($scope, Product, $state) {
+  .controller('AddProductController', ['$scope', 'Product', 'Image',
+      '$state', function($scope, Product, Image, $state) {
     $scope.action = 'Ajouter';
     $scope.product = {};
     $scope.isDisabled = false;
-
+    $scope.images = Image.find();
+    
     $scope.submitForm = function() {
       Product
         .create({
@@ -80,6 +87,24 @@ angular
         .$promise
         .then(function() {
           $state.go('all-products');
+        });
+    };
+  }])
+  .controller('AddImageController', ['$scope', 'Image',
+      '$state', function($scope, Image, $state) {
+    $scope.action = 'Ajouter';
+    $scope.image = {};
+    $scope.isDisabled = false;
+
+    $scope.submitForm = function() {
+      Image
+        .create({
+              imageDescription: $scope.image.imageDescription,
+		          fileName: $scope.image.fileName
+        })
+        .$promise
+        .then(function() {
+          $state.go('all-images');
         });
     };
   }])
@@ -99,6 +124,15 @@ angular
       .$promise
       .then(function() {
         $state.go('all-products');
+      });
+  }])
+   .controller('DeleteImageController', ['$scope', 'Image', '$state',
+      '$stateParams', function($scope, Image, $state, $stateParams) {
+    Image
+      .deleteById({ id: $stateParams.id })
+      .$promise
+      .then(function() {
+        $state.go('all-images');
       });
   }])
   .controller('EditReviewController', ['$scope', '$q', 'CoffeeShop', 'Review',
@@ -196,10 +230,4 @@ angular
         ]
       }
     });
-  }])
-  .component('greetUser', {
-    template: 'Hello, {{$ctrl.user}}!',
-    controller: function GreetUserController() {
-      this.user = 'world';
-    }
-  });
+  }]);

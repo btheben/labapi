@@ -1,10 +1,8 @@
 {
   "_meta": {
     "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
       "../common/models",
-      "./models"
+      "../node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -16,9 +14,18 @@
   "User": {
     "dataSource": "db"
   },
+  
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": true
+  },
+  "userCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "db",
+    "public": true
   },
   "ACL": {
     "dataSource": "db",
@@ -32,15 +39,11 @@
     "dataSource": "db",
     "public": false
   },
-  "CoffeeShop": {
-    "dataSource": "productDS",
-    "public": true
-  },
   "Product": {
     "dataSource": "productDS",
     "public": true
   },
-  "Review": {
+   "Image": {
     "dataSource": "productDS",
     "public": true
   },

@@ -2,13 +2,11 @@
 <html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>loopback-getting-started-intermediate</title>
-    <!--link href="css/style.css" rel="stylesheet">
+    <title>Produits Desjardins</title>
+    <link href="css/common.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
@@ -25,19 +23,23 @@
           <li ng-show="currentUser">
             <a ui-sref="add-product" ui-sref-active="active">Ajouter un produit</a>
           </li>
+          <li ng-show="currentUser">
+            <a ui-sref="all-images" ui-sref-active="active">Toutes les images</a>
+          </li>
           <li ng-hide="currentUser">
             <a ui-sref="login" ui-sref-active="active">Se connecter</a>
           </li>
           <li ng-show="currentUser">
             <a ui-sref="logout" ui-sref-active="active">Quitter</a>
           </li>
-      
+          <li><a href="/auth/facebook" class="btn btn-primary">Login with Facebook</a></li>
         </ul>
         </div>
       </nav>
     </header>
     <main ui-view></main>
 
+    
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-resource.js"></script>
     <script src="vendor/angular-ui-router.js"></script>
@@ -46,9 +48,5 @@
     <script src="js/controllers/auth.js"></script>
     <script src="js/controllers/review.js"></script>
     <script src="js/services/auth.js"></script>
-	<script src="js/components/phone-list.component.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </body>
 </html>

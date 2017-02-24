@@ -23,6 +23,12 @@ angular
         controller: 'AddProductController',
         authenticate: true
       })
+    .state('add-image', {
+        url: '/add-image',
+        templateUrl: 'views/add-image.html',
+        controller: 'AddImageController',
+        authenticate: true
+      })
       .state('all-reviews', {
         url: '/all-reviews',
         templateUrl: 'views/all-reviews.html',
@@ -32,6 +38,11 @@ angular
         url: '/all-products',
         templateUrl: 'views/all-products.html',
         controller: 'AllProductsController'
+      })
+    .state('all-images', {
+        url: '/all-images',
+        templateUrl: 'views/all-images.html',
+        controller: 'AllImagesController'
       })
       .state('edit-review', {
         url: '/edit-review/:id',
@@ -58,6 +69,11 @@ angular
 	  .state('delete-product', {
         url: '/delete-product/:id',
         controller: 'DeleteProductController',
+        authenticate: true
+      })
+    .state('delete-image', {
+        url: '/delete-image/:id',
+        controller: 'DeleteImageController',
         authenticate: true
       })
       .state('forbidden', {

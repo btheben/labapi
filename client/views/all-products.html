@@ -41,7 +41,7 @@
   <tbody>
      <tr nowrap="nowrap" ng-repeat="r in products.slice().reverse() | filter:$ctrl.search | filter:byRange('Rate', filterModelMin.rate, filterModelMax.rate) | filter:byRange('AnnualFee', filterModelMin.annualFee, filterModelMax.annualFee)">
 	
-	  <th><img src="{{r.ImageURL}}"</th>
+	  <th><img src="/img/{{r.ImageURL}}"></th>
       <th >{{r.Name}}</th>
       <th>{{r.Description}}</th>    
     <th>{{r.Rate}} % </th>	
